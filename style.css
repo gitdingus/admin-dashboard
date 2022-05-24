@@ -1,5 +1,4 @@
 @import url('fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 body{
     font-family: Roboto;
     margin: 0;
@@ -7,7 +6,7 @@ body{
 }
 .container{
     display: grid;
-    grid-template: auto auto / 1fr 4fr;
+    grid-template: 175px auto / 1fr 4fr;
 }
 
 .sidebar{
@@ -19,6 +18,7 @@ body{
 
 .sidebar h1{
     margin: 0;
+    padding:0;
     font-size: 1.75rem;
 }
 
@@ -30,17 +30,73 @@ body{
     font-weight: 600;
 }
 
+.sidebar li{
+    padding:0;
+    margin: 0;
+}
+
 .header{
     grid-area: 1 / 2 / 2 / 3;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 15px 30px;
 }
 
 .header .row{
     display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .header .row .search,
 .header .row .greeting{
     flex-grow: 1;
+}
+
+.header .row:first-child p:last-child{
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+.header .row .search {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+}
+
+
+.greeting{
+    display: grid;
+    grid-template-rows: 35px 35px;
+    grid-template-columns: 60px 1fr;
+    grid-template-areas: "image hi" "image username";
+    align-items: center;
+}
+
+.greeting *{
+    margin: 0;
+    padding: 0;
+}
+
+.greeting img{
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+}
+
+.greeting .hi{
+    font-size: .9rem;
+    font-weight: 600;
+    grid-area: hi;
+    align-self: end;
+
+}
+
+.greeting .user-name{
+    font-size: 1.25rem;
+    font-weight:600;
+    grid-area: username;
+    align-self: start;
 }
 
 .header-button{
@@ -49,10 +105,27 @@ body{
     width: 100px;
     height: 35px;
     border-radius: 18px;
+    border: 0;
+    font-weight: 600;
 }
 
+#search-button{
+    border: 0;
+    border-radius: 50%;
+    background-color: white;
+    align-self: center;
+
+}
 .header input[type="search"]{
+    box-sizing: border-box;
     background-color: #DBEAFE;
+    border: 0;
+    width: 75%;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 8px 20px;
+    font-size: 1rem;
+    
 }
 
 .projects{
@@ -60,7 +133,7 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
 
-    padding:15px;
+    padding: 0 15px;
 }
 
 .projects .project{
@@ -69,6 +142,8 @@ body{
     border-radius: 8px;
 
     padding: 13px 18px;
+    display: flex;
+    flex-direction: column;
 }
 
 .projects .project h1{
@@ -79,7 +154,12 @@ body{
 .projects .project p{
     color: #78716c;
     font-size: .95rem;
+    flex-grow: 1;
 
+}
+
+.projects .project .project-buttons{
+    align-self: flex-end;
 }
 .content{
     background-color: #DBEAFE;
@@ -101,15 +181,19 @@ body{
 .announcements-content{
     border-radius: 8px;
     display:grid;
-    gap: 30px;
+    gap: 20px;
     padding: 30px;
 
 }
 
-.announcements-content, .trends{
-    background: white;
+.announcements-content hr {
+    margin: 0;
+    color: #78716c;
 }
 
+.announcements-content, .trends{
+    background-color: white;
+}
 
 .announcements-content .announcement h1{
     font-size: .95rem;
