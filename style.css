@@ -249,3 +249,9 @@ img{
     width: 50px;
     border-radius: 50%;
 }
+
+.project,
+.announcements-content,
+.trends{
+    box-shadow: 1px 3px 10px #b0c0d4;
+}
